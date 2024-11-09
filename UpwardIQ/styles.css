@@ -1,0 +1,106 @@
+/* General layout */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%; /* Ensure full page height */
+    font-family: Arial, sans-serif;
+}
+
+/* Header styling */
+header {
+    background-color: #f4f4f4;
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.header-logo {
+    height: 50px;
+    margin-right: 20px;
+}
+
+.header-text h1 {
+    font-size: 24px;
+    margin-bottom: 5px;
+}
+
+.header-text p {
+    font-size: 14px;
+    color: #555;
+}
+
+/* Main content styling */
+main {
+    padding: 20px;
+}
+
+/* Footer styling */
+footer {
+    background-color: #f4f4f4;
+    padding: 10px;
+    text-align: center;
+    width: 100%;
+}
+
+/* Print-specific styles */
+@media print {
+    body, html {
+        height: auto; /* Let the page height be auto for printing */
+        overflow: visible;
+    }
+
+    header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background-color: #f4f4f4;
+        padding: 10px 20px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    footer {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        background-color: #f4f4f4;
+        padding: 10px;
+        text-align: center;
+        box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Ensure enough space for header and footer in the main content */
+    main {
+        margin-top: 100px; /* Add space for header */
+        margin-bottom: 60px; /* Add space for footer */
+        padding-bottom: 60px; /* Ensure content doesn’t overlap footer */
+    }
+
+    /* Page breaks to ensure content fits properly */
+    main > * {
+        page-break-inside: avoid; /* Prevent content from breaking inside */
+    }
+
+    /* Force page break after content */
+    main {
+        page-break-after: always;
+    }
+
+    /* Hide unnecessary elements for print if needed */
+    .no-print {
+        display: none;
+    }
+
+    /* Add page breaks between sections */
+    h2, p {
+        page-break-before: always;
+    }
+}
